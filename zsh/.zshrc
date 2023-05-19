@@ -179,7 +179,6 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"\
 
 
 _gen_fzf_default_opts
-eval "$(zoxide init zsh)"
 
 
 export PATH=/home/av6/bin:$PATH
