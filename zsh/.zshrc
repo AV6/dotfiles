@@ -112,6 +112,8 @@ alias du="dust"
 export EDITOR="nvim"
 alias vimdiff='nvim -d'
 alias nvi='nvr'
+alias vi="nvim"
+alias vim="nvim"
 
 alias wezterm='flatpak run org.wezfurlong.wezterm'
 
@@ -122,7 +124,7 @@ alias tns="tmux new -s"
 alias lshosts="cat /etc/hosts | grep -v '#' |awk '{print \$2\" \(\"\$1\"\)\"}'"
 #zle -N fzf-cd-widget
 #bindkey '^n' fzf-cd-widget
-alias cdp="cd \$(fd --max-depth 3 -H -t d \".git$\" ~/projects |fzf| sed -e \"s/\.git$//\")"
+alias cdp="cd \$(fdfind --max-depth 3 -H -t d \".git$\" ~/projects |fzf| sed -e \"s/\.git$//\")"
 bindkey -s "\C-f" "cdp ^M"
 bindkey -s '\C-g' 'lazygit ^M'
 bindkey -s '\C-e' 'nvim ^M'
