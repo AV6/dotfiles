@@ -109,11 +109,11 @@ alias p="cd \$(git rev-parse --show-toplevel)"
 alias bat="batcat --theme='ansi-dark'"
 alias pbcopy='xclip -selection c'
 alias du="dust"
-export EDITOR="nvim"
-alias vimdiff='nvim -d'
+export EDITOR="lvim"
+alias vimdiff='lvim -d'
 alias nvi='nvr'
-alias vi="nvim"
-alias vim="nvim"
+alias vi="lvim"
+alias vim="lvim"
 
 alias wezterm='flatpak run org.wezfurlong.wezterm'
 
@@ -144,7 +144,19 @@ vicd()
     ls
 }
 
-bindkey -s '^o' 'vicd ^M'
+function ya() {
+	tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+#bindkey -s '^o' 'vicd ^M'
+#moving to yazi-fm 
+#(cargo install yazi-fm)
+bindkey -s '^o' 'ya ^M'
 
 FZF_TMUX=0
 
